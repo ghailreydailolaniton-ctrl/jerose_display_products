@@ -713,7 +713,7 @@ function setPay(p){coState.pay=p;renderCheckout();}
 /* Email config — the specific email address orders are sent to */
 let orderEmail=DB.get('orderEmail','ghaillaniton@gmail.com');
 function setOrderEmail(v){orderEmail=(v||'').trim();DB.set('orderEmail',orderEmail);}
-let sellerMessenger = DB.get('sellerMessenger','Jerose Empuerto'); // <-- Palitan ng tamang username
+let sellerMessenger = DB.get('sellerMessenger','Ghail Rey Laniton'); // <-- Palitan ng tamang username
 function setSellerMessenger(v){ sellerMessenger = (v||'').trim(); DB.set('sellerMessenger',sellerMessenger); }
 
 function placeOrder(total){
