@@ -290,7 +290,7 @@ const PRODUCT_LIST = [
                                                                                                         newArrival:true },
 
   // ---------- KEYCHAIN ----------
-{ name:'Grapes Keychain',   image:'images/Home Decor/1_minihouse.jpg', category:'Keychain', 
+{ name:'Grapes Keychain',   image:'images/KeyChain/1_grape_chain.jpg', category:'Keychain', 
                                                                                         price:20, 
                                                                                         colors: [ { name:"Red", image:"images/Keychain/Grape KeyChain/1_grape_chain.jpg", hex: '#E60012'},
                                                                                                   { name:"Maroon", image:"images/Keychain/Grape KeyChain/2_grape_chain.jpg", hex: '#6B0F1A' },
