@@ -14,14 +14,15 @@ function sendOrderToMessenger(oid) {
     <div style="padding:28px 24px;max-width:600px;margin:0 auto;">
       <h2 style="font-size:22px;font-weight:800;margin-bottom:12px;">💬 Send Order to Seller via Messenger</h2>
       <p style="color:var(--text-soft);margin-bottom:16px;">
-        Copy the order below, then click "Open Messenger" and <strong>paste (Ctrl+V)</strong> the message to the seller.
+        Copy the order below, then tap "Open Messenger" and <strong>paste (long press → Paste)</strong> the message to the seller.
       </p>
       <div class="glass" style="background:var(--bg-2);padding:16px;border-radius:12px;max-height:300px;overflow:auto;white-space:pre-wrap;font-family:monospace;font-size:13px;line-height:1.6;margin-bottom:16px;">${escapeHTML(msg)}</div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
         <button class="btn btn-accent" style="flex:1;" onclick="copyOrderText('${oid}')">📋 Copy to Clipboard</button>
-        <button class="btn btn-primary" style="flex:1;" onclick="openMessenger()">💬 Open Messenger</button>
+        <a class="btn btn-primary" style="flex:1;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" 
+           href="https://m.me/${sellerMessenger}" target="_blank" rel="noopener">💬 Open Messenger</a>
       </div>
-      <p style="font-size:12px;color:var(--text-mute);margin-top:12px;">After clicking "Open Messenger", paste the copied message and press Send.</p>
+      <p style="font-size:12px;color:var(--text-mute);margin-top:12px;">After tapping "Open Messenger", paste the copied message and send it.</p>
     </div>
   `);
 
@@ -36,11 +37,7 @@ function copyOrderText(oid) {
   toast('📋 Order copied! Now open Messenger and paste it.');
 }
 
-/* Helper: Open Messenger of seller */
-function openMessenger() {
-  if (!sellerMessenger) return;
-  window.open(`https://m.me/${sellerMessenger}`, '_blank');
-}
+/* No need for openMessenger() – direct link in anchor */
 
 /* Helper: Escape HTML for display */
 function escapeHTML(str) {
