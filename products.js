@@ -300,7 +300,7 @@ const PRODUCT_LIST = [
                                                                                         rating:4.9, 
                                                                                         sold:15, 
                                                                                         badge:'new' },
-{ name:'Flower Keychain',   image:'images/Keychain/Flower KeyChain/1_flower_chain.jpg', category:'Keychain', 
+{ name:'Flower Keychain',   image:'images/Keychain/Flower KeyChain/1_1_flower_chain.jpg', category:'Keychain', 
                                                                                       price:20, 
                                                                                       base:199, 
                                                                                       colors: [ { name:"Red", image:"images/Keychain/Flower KeyChain/1_flower_chain.jpg", hex: '#E60012'},
