@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jerose — Premium Gifts & Bouquets</title>
+  <meta name="description" content="Jerose — Premium gifts, accessories, souvenirs, flower bouquets, home decor and keychains. Owned by Jerose." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="progbar"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- HEADER -->
+<header id="topbar">
+  <div class="topline">
+    <div class="container">
+      <div style="overflow:hidden;flex:1"><span class="marq">🚚 Flat ₱20 delivery nationwide &nbsp; • &nbsp; ⚡ Flash Sale up to 70% OFF &nbsp; • &nbsp; 🌸 New Flower Bouquets just arrived &nbsp; • &nbsp; ✨ Personalized gifts made with love &nbsp; • &nbsp; 🚚 Flat ₱20 delivery nationwide &nbsp; • &nbsp; ⚡ Flash Sale up to 70% OFF &nbsp; • &nbsp; 🌸 New Flower Bouquets just arrived &nbsp; • &nbsp; ✨ Personalized gifts made with love &nbsp;</span></div>
+      <div class="links">
+        <a href="#" onclick="go('profile');return false">Track Order</a>
+        <a href="#" onclick="go('profile');return false">Help</a>
+        <a href="#" onclick="go('login');return false">Sell on Jerose</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="headmain glass">
+    <div class="container">
+      <button class="iconbtn menubtn" onclick="toggleMobileNav()">☰</button>
+      <a href="#" class="logo" onclick="go('home');return false">
+        <span class="mark">◆</span><span>Je<span class="grad-text">rose</span></span>
+      </a>
+
+      <div class="searchwrap">
+        <div class="searchbar">
+          <div class="catsel" onclick="go('products')">All ▾</div>
+          <input id="searchInput" type="text" placeholder="Search premium gifts, bouquets, keychains..." autocomplete="off" />
+          <button class="go" onclick="doSearch()">🔍</button>
+        </div>
+        <div class="suggestbox glass hidden" id="suggestBox"></div>
+      </div>
+
+      <div class="headactions">
+        <button class="iconbtn lang-btn" onclick="toggleLang()" title="Language"><span id="langFlag">🇺🇸</span></button>
+        <button class="iconbtn" onclick="toggleTheme()" title="Dark mode"><span id="themeIcon">🌙</span></button>
+        <div class="pos-rel">
+          <button class="iconbtn" onclick="toggleDD('ddNotif')" title="Notifications">🔔<span class="badge" id="notifBadge">3</span></button>
+          <div class="dd glass" id="ddNotif"></div>
+        </div>
+        <button class="iconbtn" onclick="go('wishlist')" title="Wishlist">❤️<span class="badge hidden" id="wishBadge">0</span></button>
+        <button class="iconbtn" onclick="openCart()" title="Cart" id="cartIconBtn">🛒<span class="badge hidden" id="cartBadge">0</span></button>
+        <div class="pos-rel">
+          <div class="avatar" onclick="toggleDD('ddProfile')" id="navAvatar">G</div>
+          <div class="dd glass" id="ddProfile"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="navrow glass">
+    <div class="container" id="navRow">
+      <a class="navlink active" onclick="go('home')">🏠 Home</a>
+      <a class="navlink" onclick="go('products')">🛍️ All Products</a>
+      <a class="navlink" onclick="go('products','Accessories')">💍 Accessories</a>
+      <a class="navlink" onclick="go('products','Souvenir')">🎁 Souvenir</a>
+      <a class="navlink" onclick="go('products','Flower Bouquet')">💐 Flower Bouquet</a>
+      <a class="navlink" onclick="go('products','Home Decor')">🖼️ Home Decor</a>
+      <a class="navlink" onclick="go('products','Keychain')">🔑 Keychain</a>
+      <a class="navlink hot" onclick="go('products','flash')">⚡ Flash Sale</a>
+    </div>
+  </div>
+</header>
+
+<main id="view"></main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="margin-bottom:12px"><span class="mark">◆</span><span>Je<span class="grad-text">rose</span></span></div>
+        <p>Premium personalized gifts, elegant bouquets, and handcrafted keepsakes — thoughtfully made to celebrate life's beautiful moments.</p>
+        <div class="socials">
+          <a href="#" onclick="return false">📘</a><a href="#" onclick="return false">📸</a><a href="#" onclick="return false">🐦</a><a href="#" onclick="return false">▶️</a><a href="#" onclick="return false">💬</a>
+        </div>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a onclick="go('products','Accessories')">Accessories</a>
+        <a onclick="go('products','Souvenir')">Souvenir</a>
+        <a onclick="go('products','Flower Bouquet')">Flower Bouquet</a>
+        <a onclick="go('products','Home Decor')">Home Decor</a>
+        <a onclick="go('products','Keychain')">Keychain</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a onclick="go('profile')">My Account</a>
+        <a onclick="go('profile')">Order Tracking</a>
+        <a onclick="go('wishlist')">Wishlist</a>
+        <a href="#" onclick="return false">Returns</a>
+        <a href="#" onclick="return false">Contact Us</a>
+      </div>
+      <div>
+        <h4>Stay in the loop</h4>
+        <p>Subscribe for exclusive deals & new arrivals.</p>
+        <div class="newsletter">
+          <input type="email" placeholder="Your email" id="newsEmail" />
+          <button class="btn btn-primary" onclick="subscribe()">Join</button>
+        </div>
+        <p style="margin-top:14px;font-size:12px">💳 Visa · Mastercard · PayPal · GPay · COD</p>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Jerose — Owned by Jerose · Crafted with 💗 · A demo E‑Commerce SPA (HTML · CSS · Vanilla JS · LocalStorage)</div>
+  </div>
+</footer>
+
+<!-- overlay / modal / drawer / toast -->
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+<div class="modal" id="modal"></div>
+<div class="drawer" id="cartDrawer"></div>
+<div class="toast-wrap" id="toastWrap"></div>
+<canvas id="confetti" class="hidden"></canvas>
+<button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="products.js"></script>
+<script src="script.js"></script>
+<script src="email/email.js"></script>
+</body>
+</html>
