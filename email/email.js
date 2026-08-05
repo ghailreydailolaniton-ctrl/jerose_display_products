@@ -1,45 +1,80 @@
-// email/email.js – Messenger (manual copy + paste) & Email Fallback
+// email/email.js – Messenger (auto-fill with fallback) & Email Fallback
 
-/* ------- Messenger (Manual Copy-Paste) ------- */
+/* ------- Messenger (Auto-fill + Manual Copy-Paste) ------- */
 function sendOrderToMessenger(oid) {
   const o = orders.find(x => x.id === oid);
   if (!o) { toast('Order not found','err'); return; }
   if (!sellerMessenger) { toast('Set Messenger username in Settings first','err'); return; }
 
   const msg = buildOrderMessage(o);
+  const encodedMsg = encodeURIComponent(msg);
+  const messengerUrl = `https://m.me/${sellerMessenger}?text=${encodedMsg}`;
 
-  // Ipakita ang modal na may order text at manual copy button
+  // Ipakita ang modal na may order text at dalawang button
   openModal(`
     <button class="mclose" onclick="closeAll()">✕</button>
     <div style="padding:28px 24px;max-width:600px;margin:0 auto;">
       <h2 style="font-size:22px;font-weight:800;margin-bottom:12px;">💬 Send Order to Seller via Messenger</h2>
       <p style="color:var(--text-soft);margin-bottom:16px;">
-        Copy the order below, then click "Open Messenger" and <strong>paste (Ctrl+V)</strong> the message to the seller.
+        Tap the button below to open Messenger with your order <strong>pre-filled</strong>. Then simply <strong>tap Send</strong>.
+        <br><em>If the message is too long, use "Copy to Clipboard" and paste manually.</em>
       </p>
       <div class="glass" style="background:var(--bg-2);padding:16px;border-radius:12px;max-height:300px;overflow:auto;white-space:pre-wrap;font-family:monospace;font-size:13px;line-height:1.6;margin-bottom:16px;">${escapeHTML(msg)}</div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
+        <button class="btn btn-primary" style="flex:1;" onclick="openMessengerWithMessage('${messengerUrl}')">💬 Open Messenger (auto‑fill)</button>
         <button class="btn btn-accent" style="flex:1;" onclick="copyOrderText('${oid}')">📋 Copy to Clipboard</button>
-        <button class="btn btn-primary" style="flex:1;" onclick="openMessenger()">💬 Open Messenger</button>
       </div>
-      <p style="font-size:12px;color:var(--text-mute);margin-top:12px;">After clicking "Open Messenger", paste the copied message and press Send.</p>
+      <p style="font-size:12px;color:var(--text-mute);margin-top:12px;">
+        After tapping "Open Messenger", paste the message if it didn't appear automatically.
+      </p>
     </div>
   `);
 
-  // Save the current message in a temporary variable para magamit ng copy button
+  // Save the current message for the copy button
   window._tempOrderMsg = msg;
 }
 
 /* Helper: Copy the order text to clipboard */
 function copyOrderText(oid) {
-  const text = window._tempOrderMsg || buildOrderMessage(orders.find(x=>x.id===oid));
+  const text = window._tempOrderMsg || buildOrderMessage(orders.find(x => x.id === oid));
   copyToClipboard(text);
   toast('📋 Order copied! Now open Messenger and paste it.');
 }
 
-/* Helper: Open Messenger of seller */
-function openMessenger() {
-  if (!sellerMessenger) return;
-  window.open(`https://m.me/${sellerMessenger}`, '_blank');
+/* Helper: Open Messenger with pre-filled message (using ?text= parameter) */
+function openMessengerWithMessage(url) {
+  // Gamitin ang window.open para ma-trigger ang Messenger app
+  var newWindow = window.open(url, '_blank');
+
+  // Fallback kung hinarang ng browser (hal. in-app browser)
+  if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+    // Ipakita ang link at copy button
+    showFallbackLink(url);
+  }
+}
+
+/* Helper: Fallback kung hindi bumukas ang Messenger */
+function showFallbackLink(url) {
+  openModal(`
+    <button class="mclose" onclick="closeAll()">✕</button>
+    <div style="padding:24px;text-align:center;">
+      <h3 style="margin-bottom:12px;">📱 Messenger didn't open automatically</h3>
+      <p style="color:var(--text-soft);margin-bottom:16px;">
+        Your browser may have blocked the pop‑up. Use the link below:
+      </p>
+      <div style="background:var(--bg-2);padding:12px;border-radius:8px;word-break:break-all;margin-bottom:12px;font-size:14px;">${url}</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+        <button class="btn btn-accent" onclick="copyFallbackLink('${url}')">📋 Copy Link</button>
+        <a class="btn btn-primary" style="text-decoration:none;" href="${url}" target="_blank">↗️ Open Anyway</a>
+      </div>
+      <p style="font-size:12px;color:var(--text-mute);margin-top:12px;">You can also long‑press the link and open in Messenger.</p>
+    </div>
+  `);
+}
+
+function copyFallbackLink(url) {
+  copyToClipboard(url);
+  toast('📋 Link copied! Open Messenger and send it manually.');
 }
 
 /* Helper: Escape HTML for display */
