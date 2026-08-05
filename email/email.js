@@ -21,7 +21,7 @@ function sendOrderToMessenger(oid) {
       </p>
       <div class="glass" style="background:var(--bg-2);padding:16px;border-radius:12px;max-height:300px;overflow:auto;white-space:pre-wrap;font-family:monospace;font-size:13px;line-height:1.6;margin-bottom:16px;">${escapeHTML(msg)}</div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
-        <button class="btn btn-primary" style="flex:1;" onclick="openMessengerWithMessage('${messengerUrl}')">💬 Open Messenger (auto‑fill)</button>
+        <button class="btn btn-primary" style="flex:1;" onclick="openMessengerWithMessage('${messengerUrl}')">💬 Open Messenger</button>
         <button class="btn btn-accent" style="flex:1;" onclick="copyOrderText('${oid}')">📋 Copy to Clipboard</button>
       </div>
       <p style="font-size:12px;color:var(--text-mute);margin-top:12px;">
