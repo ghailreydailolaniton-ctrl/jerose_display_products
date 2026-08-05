@@ -329,7 +329,7 @@ const PRODUCT_LIST = [
                                                                                         rating:4.7, 
                                                                                         sold:5, 
                                                                                         badge:'limited' },
-{ name:'Strawberry Keychain',image:'images/KeyChain/Strawberry KeyChain/1_sberry_chain.jpg', category:'Keychain', 
+{ name:'Strawberry Keychain',image:'images/KeyChain/Strawberry keyChain/1_sberry_chain.jpg', category:'Keychain', 
                                                                                             price:20, 
                                                                                             base:259, 
                                                                                             colors:[{ name:"Pink", image:"images/KeyChain/Strawberry KeyChain/1_sberry_chain.jpg", hex: '#F7A8C8' },
