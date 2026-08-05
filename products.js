@@ -290,7 +290,7 @@ const PRODUCT_LIST = [
                                                                                                         newArrival:true },
 
   // ---------- KEYCHAIN ----------
-{ name:'Grapes Keychain',   image:'images/KeyChain/1_grape_chain.jpg', category:'Keychain', 
+{ name:'Grapes Keychain', image:'images/KeyChain/Grape KeyChain/ 1_grape_chain.jpg', category:'Keychain', 
                                                                                         price:20, 
                                                                                         colors: [ { name:"Red", image:"images/Keychain/Grape KeyChain/1_grape_chain.jpg", hex: '#E60012'},
                                                                                                   { name:"Maroon", image:"images/Keychain/Grape KeyChain/2_grape_chain.jpg", hex: '#6B0F1A' },
@@ -300,7 +300,7 @@ const PRODUCT_LIST = [
                                                                                         rating:4.9, 
                                                                                         sold:15, 
                                                                                         badge:'new' },
-{ name:'Flower Keychain',   image:'images/Keychain/Flower KeyChain/1_1_flower_chain.jpg', category:'Keychain', 
+{ name:'Flower Keychain', image:'images/Keychain/Flower KeyChain/1_flower_chain.jpg', category:'Keychain', 
                                                                                       price:20, 
                                                                                       base:199, 
                                                                                       colors: [ { name:"Red", image:"images/Keychain/Flower KeyChain/1_flower_chain.jpg", hex: '#E60012'},
@@ -318,7 +318,7 @@ const PRODUCT_LIST = [
                                                                                         rating:4.6, 
                                                                                         sold:11, 
                                                                                         bestSeller:true },
-{ name:'Milktea Keychain',  image:'images/Keychain/Milktea KeyChain/1_milktea_chain.jpg', category:'Keychain', 
+{ name:'Milktea Keychain', image:'images/Keychain/Milktea KeyChain/1_milktea_chain.jpg', category:'Keychain', 
                                                                                         price:25, 
                                                                                         colors:[{ name:"Pink", image:"images/Keychain/Milktea KeyChain/1_milktea_chain.jpg", hex: '#F7A8C8' },
                                                                                                 { name:"Yellow", image:"images/Keychain/Milktea KeyChain/2_milktea_chain.jpg", hex: '#FFFF00' },
