@@ -310,7 +310,7 @@ const PRODUCT_LIST = [
                                                                                                 { name:"Yellow", image:"images/KeyChain/Flower KeyChain/5_flower_chain.jpg", hex: '#FFFF00' }],
                                                                                       rating:4.5, 
                                                                                       sold:11 },
-{ name:'lollipop Keychain', image:'images/KeyChain/Lollipop KeyChain/1_llipop.jpg', category:'Keychain', 
+{ name:'lollipop Keychain', image:'images/KeyChain/lollipop KeyChain/1_llipop.jpg', category:'Keychain', 
                                                                                         price:20, 
                                                                                         colors:[{ name:"Red", image:"images/KeyChain/Lollipop KeyChain/1_llipop.jpg", hex: '#E60012'},
                                                                                                 { name:"Pink", image:"images/KeyChain/Lollipop KeyChain/2_llipop.jpg", hex: '#F7A8C8' },
